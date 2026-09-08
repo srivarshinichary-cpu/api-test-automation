@@ -6,10 +6,17 @@ def test_get_users():
 
     response = requests.get(url)
 
+    # Validate status code
     assert response.status_code == 200
 
+    # Validate response time
+    assert response.elapsed.total_seconds() < 5
+
+    # Validate response body
     data = response.json()
 
+    assert isinstance(data, list)
     assert len(data) > 0
     assert "name" in data[0]
     assert "email" in data[0]
+    assert "id" in data[0]

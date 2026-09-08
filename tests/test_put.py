@@ -10,5 +10,15 @@ def test_update_user():
 
     response = requests.put(url, json=payload)
 
+    # Validate status code
     assert response.status_code == 200
-    assert response.json()["name"] == "Updated User"
+
+    # Validate response time
+    assert response.elapsed.total_seconds() < 5
+
+    # Validate response body
+    data = response.json()
+
+    assert isinstance(data, dict)
+    assert "id" in data
+    assert data["name"] == payload["name"]
