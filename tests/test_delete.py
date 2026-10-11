@@ -1,16 +1,15 @@
 import requests
 
-
-def test_delete_user():
-    url = "https://jsonplaceholder.typicode.com/users/1"
-
+def test_delete_user(base_url):
+    url = f"{base_url}/users/1"
     response = requests.delete(url)
 
-    # Validate status code
+# Validate status code
     assert response.status_code == 200
 
-    # Validate response time
+# Validate response time
     assert response.elapsed.total_seconds() < 5
 
-    # Validate response body
+# Validate response body
     assert response.text == "{}"
+

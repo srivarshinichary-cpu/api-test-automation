@@ -1,18 +1,18 @@
 import requests
 
-
-def test_get_users():
-    url = "https://jsonplaceholder.typicode.com/users"
-
+def test_get_users(base_url):
+    url = f"{base_url}/users"
     response = requests.get(url)
 
-    # Validate status code
+
+
+# Validate status code
     assert response.status_code == 200
 
-    # Validate response time
+# Validate response time
     assert response.elapsed.total_seconds() < 5
 
-    # Validate response body
+# Validate response body
     data = response.json()
 
     assert isinstance(data, list)
