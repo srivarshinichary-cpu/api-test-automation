@@ -4,7 +4,7 @@ import requests
 def test_get_users(base_url):
     url = f"{base_url}/users"
 
-    response = requests.get(url)
+    response = requests.get(url, timeout=5)
 
     # Validate status code
     assert response.status_code == 200

@@ -5,7 +5,7 @@ def test_update_user(base_url):
     payload = {
         "name": "Updated User"
     }
-    response = requests.put(url, json=payload)
+    response = requests.put(url, json=payload, timeout=5)
 
 # Validate status code
     assert response.status_code == 200

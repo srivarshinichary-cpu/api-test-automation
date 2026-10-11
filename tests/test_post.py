@@ -10,7 +10,7 @@ def test_create_user(base_url):
         "email": "sri@example.com"
     }
 
-    response = requests.post(url, json=payload)
+    response = requests.post(url, json=payload, timeout=5)
 
     # Validate status code
     assert response.status_code == 201

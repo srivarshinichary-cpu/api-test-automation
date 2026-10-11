@@ -2,7 +2,7 @@ import requests
 
 def test_delete_user(base_url):
     url = f"{base_url}/users/1"
-    response = requests.delete(url)
+    response = requests.delete(url, timeout=5)
 
 # Validate status code
     assert response.status_code == 200
